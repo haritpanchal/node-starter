@@ -47,10 +47,12 @@ exports.postCart = (req, res, next) => {
 };
 
 exports.getCart = (req, res, next) => {
-  res.render("shop/cart", {
-    path: "/cart",
-    pageTitle: "Your Cart",
-  });
+  req.user
+    .getCart(cart => {
+      return cart.getProducts();
+    })
+    .then(result => console.log(result))
+    .catch((err) => console.log(err));
 };
 
 exports.getOrders = (req, res, next) => {
