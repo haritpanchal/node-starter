@@ -19,8 +19,16 @@ form {
   display: inline;
 }
 
-.centered{
+.centered {
   text-align: center;
+}
+
+.image {
+  height: 20rem;
+}
+
+.image img {
+  height: 100%;
 }
 
 .main-header {
@@ -72,7 +80,7 @@ form {
   z-index: 10;
   padding: 2rem 1rem 1rem 2rem;
   transform: translateX(-100%);
-  /* transition: transform 0.3s ease-out; */
+  transition: transform 0.3s ease-out;
 }
 
 .mobile-nav.open {
@@ -194,6 +202,17 @@ form {
 .btn:hover,
 .btn:active {
   background-color: #00695c;
+  color: white;
+}
+
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
   color: white;
 }
 
