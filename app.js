@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
-  User.findUserById("645507f5d31b7129b3a3dc8c")
+  User.findById("6459efe91d4cb37411d30df7")
     .then((user) => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
+      req.user = user;
       next();
     })
     .catch((err) => console.log(err));
@@ -35,9 +35,19 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    "mongodb+srv://panchalharit007:u7YaiUzxJF1IqlhT@cluster0.npg6tc3.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://panchalharit007:u7YaiUzxJF1IqlhT@cluster0.npg6tc3.mongodb.net/shop?retryWrites=true&w=majority"
   )
   .then((result) => {
+    User.findOne().then((user) => {
+      if (!user) {
+        const user = new User({
+          name: "Harit",
+          email: "harit@mailinator.com",
+          cart: { items: [] },
+        });
+        user.save();
+      }
+    });
     app.listen(3000);
   })
   .catch((err) => console.log(err));
