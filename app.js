@@ -54,7 +54,7 @@ app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedin;
   res.locals.csrfToken = req.csrfToken();
   next();
-});
+}); 
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
