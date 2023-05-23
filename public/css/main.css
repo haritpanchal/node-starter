@@ -215,7 +215,7 @@ form {
 }
 
 .btn:hover,
-.btn:active {
+.btn:active, .btn.active {
   background-color: #00695c;
   color: white;
 }
@@ -254,8 +254,12 @@ form {
   background-color: #8ea8fd;
   text-align: center;
 }
-.user-message--error{
+.user-message--error {
   border-color: red;
   background-color: rgb(223, 166, 166);
   color: red;
+}
+
+.pagination{
+  text-align: center;
 }
